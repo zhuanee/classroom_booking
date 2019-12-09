@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="main/public :: #public_head" />
+<body>
+<!--头部-->
+<header class="publicHeader" th:replace="main/public :: #public_header" />
+
+<!--时间-->
+<section class="publicTime" th:replace="main/public :: #public_time" />
+
+<!--主体内容-->
+<section class="publicMian">
+    <div class="left" th:replace="main/public :: #public_left" />
+
+    <div class="right">
+        <img class="wColck" src="../img/clock.jpg" alt=""/>
+        <div class="wFont">
+            <h2 th:text="${session.loginUser}"></h2>
+            <p>欢迎来到南大教室预定系统!</p>
+			<span id="hours"></span>
+        </div>
+    </div>
+</section>
+<footer class="footer" th:replace="main/public :: #public_footer" />
+<!--
+	<script src="js/time.js"></script>
+	-->
+
+</body>
+</html>

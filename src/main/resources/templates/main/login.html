@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>系统登录 - 南大教室预定系统</title>
+    <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body class="login_bg">
+    <section class="loginBox">
+
+
+            <header class="loginHeader">
+                <div>
+                    <img src="../img/logo.png" style="vertical-align:middle;width: 205px;margin-left: 20px">
+                    <span th:text="#{login.systemName}"></span>
+                </div>
+
+            </header>
+			<div  th:if="${not #strings.isEmpty(msg)}" style="color:red; margin-left: 130px" th:text="${msg}"></div>
+            <form class="loginForm" th:action="@{/login}" th:method="post" action="../main/index.html">
+				
+                <div class="inputbox">
+                    <input id="user" type="text" name="username" placeholder="账号 Username" required/>
+                </div>
+                <div class="inputbox">
+                    <input id="mima" type="password" name="password" placeholder="密码 Password" required/>
+                </div>
+				<div  style="color: #ffffff;font-size: 15px;">
+						<input type="checkbox" style="zoom: 90%" > [[#{login.remember}]]
+                </div>
+				<br/>
+                <div class="subBtn">
+                    <input type="submit" th:value="#{login.login}" value="Sign" style="float: left" />
+                    <input type="reset" th:value="#{login.register}" value="Reset" style="float: right"/>
+                </div>
+				<br/>
+				<div style="margin-left: 50px; margin-top:20px; font-size: 12px;">
+                    <a th:href="@{/index.html(l='zh_CN')}"     style="margin-right: 65px;" th:text="#{login.forgetPassword}"></a>&nbsp;
+                    <a th:href="@{/index.html(l='zh_CN')}" style="horiz-align: center">中文</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a th:href="@{/index.html(l='en_US')}" style="float: right;">English</a>
+                </div>
+            </form>
+
+    </section>
+</body>
+</html>
